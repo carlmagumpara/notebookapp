@@ -1,0 +1,16 @@
+body {
+	font-family: 'Maven Pro', sans-serif;
+}
+.panel, .btn, .alert {
+	border-radius: 0px;
+	border: 0px;
+}
+.notebook-item a, .notebook-item input[type=submit], .notebook-item button {
+	margin-left: 10px;	
+}
+.notebook-item h2, .notebook-item h3 {
+	margin: 0px;
+}
+.hide-note {
+	display: none;
+}
