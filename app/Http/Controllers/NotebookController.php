@@ -13,7 +13,7 @@ class NotebookController extends Controller
     {
     	$user = Auth::user();
     	$notebooks = $user->notebook()->orderBy('created_at','DESC')->get();
-        return view('notebook.index',compact('notebooks'));
+        return view('notebook.index',['notebooks' => $notebooks]);
     }
 
     public function create() 
@@ -25,15 +25,19 @@ class NotebookController extends Controller
     {
     	$user = Auth::user();
     	$notebook = $user->notebook()->find($id);
-        $notes = $notebook->note()->get();
-    	return view('notebook.show', compact('notebook','notes'));
+        $notes = $notebook->note()->orderBy('created_at','DESC')->get();
+    	return view('notebook.show', ['notebook' => $notebook, 'notes' => $notes]);
     }
 
     public function edit($id)
     {
     	$user = Auth::user();
     	$notebook = $user->notebook()->find($id);
-    	return view('notebook.edit', compact('notebook'));
+    	if (empty($notebook)) {
+            return redirect('/home')->with('danger',"Access Denied!");
+        } else {
+            return view('notebook.edit',['notebook' => $notebook]);
+        }
     }
 
     public function store(Request $request)

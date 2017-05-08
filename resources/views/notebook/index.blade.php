@@ -8,6 +8,10 @@
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
                 </div>
+            @elseif (Session::has('danger'))
+                <div class="alert alert-danger">
+                    {{ session()->get('danger') }}
+                </div>
             @endif
             <div>
                 <a href="{{ route('notebook.create') }}" class="btn btn-success pull-right">Create Notebook</a>

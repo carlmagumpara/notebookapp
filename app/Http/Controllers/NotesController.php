@@ -12,15 +12,15 @@ class NotesController extends Controller
     {
     	$user = Auth::user();
     	$notebook = $user->notebook()->find($id);
-    	return view('note.create', compact('notebook'));
+    	return view('note.create',['notebook' => $notebook]);
     }
 
     public function store(Request $request, $id)
     {
-    	$user = Auth::user();
-    	$notebook = $user->notebook()->find($id);
-    	$notebook->note()->create($request->all());
-    	return redirect('notebook/'.$id.'/show')->with('success','Note Successfully Saved!');
+        $user = Auth::user();
+        $notebook = $user->notebook()->find($id);
+        $notebook->note()->create($request->all());	
+        return redirect('notebook/'.$id.'/show')->with('success','Note Successfully Saved!');
     }
 
     public function edit($id, $note_id)
@@ -28,7 +28,7 @@ class NotesController extends Controller
         $user = Auth::user();
         $notebook = $user->notebook()->find($id);
         $note = $notebook->note()->find($note_id);
-        return view('note.edit',compact('note','notebook'));
+        return view('note.edit',['notebook' => $notebook, 'note' => $note]);
     }
 
     public function update(Request $request, $id, $note_id)
