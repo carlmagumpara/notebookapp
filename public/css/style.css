@@ -1,5 +1,5 @@
 body {
-	font-family: 'Maven Pro', sans-serif;
+	/*font-family: 'Maven Pro', sans-serif;*/
 }
 .panel, .btn, .alert {
 	border-radius: 0px;
@@ -13,4 +13,7 @@ body {
 }
 .hide-note {
 	display: none;
+}
+.pointer {
+  cursor: pointer;
 }

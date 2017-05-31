@@ -9,7 +9,7 @@
                     <h1>Edit Notebook</h1>
                 </div>
                 <div class="panel-body">
-                    <form action="{{ route('notebook.update',$notebook->id) }}" method="POST">
+                    <form class="notebook-form" form-type="update" action="{{ route('notebook.update',$notebook->id) }}" method="POST">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                         <div class="form-group">

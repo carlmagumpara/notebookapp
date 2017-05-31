@@ -18,13 +18,11 @@
                     <h1>{{ $notebook->name }}</h1>
                 </div>
             @foreach ($notes as $note)
-                <div class="panel notebook-item note-item">
+                <div class="panel notebook-item note-item pointer">
                     <div class="panel-body">
-                        <form class="pull-right" action="{{ route('note.destroy',[$notebook->id , $note->id]) }}" method="POST">
-                            {{ csrf_field() }} 
-                            {{ method_field('DELETE') }}
-                            <input type="submit" class="btn btn-danger btn-sm pull-right" name="" value="Delete">
-                        </form>
+                        <button data-action="{{ route('note.destroy',[$notebook->id , $note->id]) }}" class="btn btn-danger btn-delete btn-sm pull-right">
+                            Delete
+                        </button>
                         <a href="{{ route('note.edit', [$notebook->id, $note->id]) }}" class="btn btn-sm btn-primary pull-right">Edit</a>
                         <h3 class="note-item" id="{{ $note->id }}">{{ $note->title }}</h3>
                     </div>

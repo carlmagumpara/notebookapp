@@ -31,8 +31,8 @@
                             @endif
                         </div>
                         <div class="form-group notebook-item">
-                            <a class="btn btn-warning pull-right" href="{{ route('notebook.show', $notebook->id) }}">Cancel</a>
                             <input type="submit" name="" class="btn btn-success pull-right" value="Update">
+                            <a class="btn btn-warning pull-right" href="{{ route('notebook.show', $notebook->id) }}">Cancel</a>
                         </div>
                     </form>
                 </div>

@@ -47,7 +47,8 @@ class NotebookController extends Controller
     	]);
     	$user = Auth::user();
     	$user->notebook()->create($request->all());
-    	return redirect('/home')->with('success','Notebook Successfully Saved!');
+    	$response = array('success' => 'Notebook Successfully Saved!', 'redirect' => '/home' );
+        return $response;
     }
 
     public function update(Request $request, $id)
@@ -58,7 +59,8 @@ class NotebookController extends Controller
     	$user = Auth::user();
     	$notebook = $user->notebook()->find($id);
     	$notebook->update($request->all());
-    	return redirect('/home')->with('success','Notebook Successfully Updated!');
+        $response = array('success' => 'Notebook Successfully Updated!', 'redirect' => '/home' );
+        return $response;
     }
 
     public function destroy($id)

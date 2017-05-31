@@ -20,21 +20,15 @@
             @foreach ($notebooks as $notebook)
                 <div class="panel notebook-item">
                     <div class="panel-body">
-                        
-                        <form class="pull-right" action="{{ route('notebook.destroy',$notebook->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                            <input type="submit" value="Delete" name="" class="btn btn-danger btn-sm" />
-                        </form>
-
+                        <button data-action="{{ route('notebook.destroy',$notebook->id) }}" class="btn btn-danger btn-delete btn-sm pull-right">
+                            Delete
+                        </button>
                         <a href="{{ route('notebook.edit',$notebook->id) }}" class="btn btn-primary btn-sm pull-right">
                             Edit
                         </a>
-
                         <a href="{{ route('notebook.show',$notebook->id) }}" class="btn btn-success btn-sm pull-right">
                             Show Notes
                         </a>
-
                         <h2>{{ $notebook->name }}</h2>
                         <small>{{ $notebook->created_at }}</small>
                     </div>

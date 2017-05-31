@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Maven+Pro|Pacifico|Playfair+Display" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Maven+Pro|Pacifico|Playfair+Display" rel="stylesheet"> -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -82,6 +82,7 @@
         </nav>
 
         @yield('content')
+        @include('notebook.modal')
     </div>
 
     <!-- Scripts -->

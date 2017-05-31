@@ -9,19 +9,15 @@
                     <h1>Create Notebook</h1>
                 </div>
                 <div class="panel-body">
-                    <form action="{{ route('notebook.store') }}" method="POST">
+                    <form class="notebook-form" form-type="create" action="{{ route('notebook.store') }}" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Name:</label>
                             <input type="text" name="name" class="form-control" placeholder="Notebook Name">
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
                         </div>
-                        <div class="form-group">
+                        <div class="form-group notebook-item">
                             <input type="submit" name="" class="btn btn-success pull-right" value="Save">
+                            <a href="{{ route('notebook.index') }}" class="btn btn-warning pull-right"> Cancel </a>
                         </div>
                     </form>
                 </div>
